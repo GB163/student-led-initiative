@@ -1,45 +1,74 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# ===============================
+# DEPENDENCIES
+# ===============================
 node_modules/
 
-# Expo
+# ===============================
+# EXPO
+# ===============================
 .expo/
 dist/
 web-build/
 expo-env.d.ts
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
+# ===============================
+# ENV FILES (CRITICAL)
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# ANDROID
+# ===============================
+android/
+.android/
+.gradle/
+build/
+*.apk
+*.aab
+*.keystore
+
+# ===============================
+# IOS
+# ===============================
+ios/
+Pods/
+*.xcworkspace
+*.xcodeproj
+DerivedData/
+*.mobileprovision
 *.p8
 *.p12
 *.key
-*.mobileprovision
 
-# Metro
+# ===============================
+# METRO / REACT NATIVE
+# ===============================
 .metro-health-check*
 
-# debug
+# ===============================
+# TYPESCRIPT
+# ===============================
+*.tsbuildinfo
+
+# ===============================
+# DEBUG / LOGS
+# ===============================
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
+# ===============================
+# OS
+# ===============================
 .DS_Store
-*.pem
+Thumbs.db
+*.orig.*
 
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-app-example
-
-# generated native folders
-/ios
-/android
-
-.vercel
+# ===============================
+# MISC
+# ===============================
+app-example/
+.cache/
+.vercel/
