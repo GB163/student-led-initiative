@@ -1,0 +1,388 @@
+/* JoinUs.css - Professional Child Blood Cancer Fundraising Design */
+
+/* Page Container with Gradient Background */
+.joinus-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5986 50%, #1e3a5f 100%);
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.joinus-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(239, 68, 68, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.12) 0%, transparent 40%);
+  pointer-events: none;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+/* Form Wrapper - White Card */
+.form-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 48px 40px;
+}
+
+/* Close Button */
+.form-wrapper > button:first-child {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  line-height: 1;
+  padding: 0;
+  z-index: 100;
+}
+
+.form-wrapper > button:first-child:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #333;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Page Title */
+.form-wrapper h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 32px 0;
+  z-index: 10;
+  position: relative;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding-top: 20px;
+}
+
+/* Add subtitle after h2 */
+.form-wrapper h2::after {
+  content: 'Be part of something meaningful. Help save lives.';
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  margin-top: 12px;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+/* Form Inputs and Selects */
+.form-wrapper > select,
+.form-wrapper > input {
+  width: 100%;
+  max-width: 500px;
+  padding: 16px 20px;
+  font-size: 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.3s ease;
+  color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  margin: 0 auto 16px auto;
+  display: block;
+  appearance: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* Select Dropdown Styling */
+.form-wrapper > select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%234b5563' d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 50px;
+  font-weight: 500;
+}
+
+.form-wrapper > select option {
+  padding: 12px;
+  background: white;
+  color: #1f2937;
+  font-weight: 400;
+}
+
+.form-wrapper > select option:first-child {
+  color: #9ca3af;
+}
+
+/* Focus States with Color Distinction */
+.form-wrapper > select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  background-color: #fafbff;
+}
+
+.form-wrapper > input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+  background-color: #faf5ff;
+}
+
+/* Hover States */
+.form-wrapper > select:hover,
+.form-wrapper > input:hover {
+  border-color: #d1d5db;
+}
+
+/* Placeholder Styling */
+.form-wrapper > input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.form-wrapper > input:focus::placeholder {
+  color: #d1d5db;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  max-width: 500px;
+  padding: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 24px auto 0 auto;
+  display: block;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 10;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.45);
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.submit-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.35);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Add icon effect to submit button */
+.submit-button::before {
+  content: '♥';
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.8; 
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for form elements */
+.form-wrapper > h2 {
+  animation: fadeIn 0.6s ease 0.1s backwards;
+}
+
+.form-wrapper > select:nth-of-type(1),
+.form-wrapper > input:nth-of-type(1) {
+  animation: fadeIn 0.6s ease 0.2s backwards;
+}
+
+.form-wrapper > select:nth-of-type(2),
+.form-wrapper > input:nth-of-type(2) {
+  animation: fadeIn 0.6s ease 0.3s backwards;
+}
+
+.form-wrapper > select:nth-of-type(3),
+.form-wrapper > input:nth-of-type(3) {
+  animation: fadeIn 0.6s ease 0.4s backwards;
+}
+
+.form-wrapper > input:nth-of-type(4) {
+  animation: fadeIn 0.6s ease 0.5s backwards;
+}
+
+.form-wrapper > input:nth-of-type(5) {
+  animation: fadeIn 0.6s ease 0.6s backwards;
+}
+
+.submit-button {
+  animation: fadeIn 0.6s ease 0.7s backwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .joinus-container {
+    padding: 40px 16px;
+  }
+
+  .form-wrapper {
+    max-width: 95%;
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+
+  .form-wrapper h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .form-wrapper h2::after {
+    font-size: 14px;
+  }
+
+  .form-wrapper > button:first-child {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .form-wrapper > select,
+  .form-wrapper > input {
+    padding: 14px 18px;
+    font-size: 14px;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .submit-button {
+    padding: 16px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .joinus-container {
+    padding: 30px 12px;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .form-wrapper h2 {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .form-wrapper h2::after {
+    font-size: 13px;
+  }
+
+  .form-wrapper > button:first-child {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+
+  .form-wrapper > select,
+  .form-wrapper > input {
+    padding: 13px 16px;
+    margin-bottom: 12px;
+  }
+
+  .submit-button {
+    padding: 15px;
+  }
+}
+
+/* Accessibility improvements */
+.form-wrapper > select:focus-visible,
+.form-wrapper > input:focus-visible,
+.submit-button:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading state for submit button */
+.submit-button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.submit-button.loading::after {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { 
+    transform: translateY(-50%) rotate(360deg); 
+  }
+}

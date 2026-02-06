@@ -1,0 +1,429 @@
+/* ============================================
+   CONTACT PAGE - MATCHING YOUR DESIGN
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contact-page {
+  min-height: 100vh;
+  background: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  padding-bottom: 3rem;
+}
+
+/* ============================================
+   HERO SECTION - Matching your header style
+   ============================================ */
+
+.contact-hero {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.hero-left h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   GRID LAYOUT
+   ============================================ */
+
+.contact-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   CARD STYLES - Matching your cards
+   ============================================ */
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #6366f1;
+  color: white;
+}
+
+.card-header .title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge.outline {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   CHAT CARD
+   ============================================ */
+
+.chat-card {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.chat-window {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-window::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-window::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 0.875rem 1.125rem;
+  border-radius: 16px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.bubble.me {
+  background: #6366f1;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble.staff {
+  background: white;
+  color: #374151;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ============================================
+   QUICK TOPICS - Matching your button style
+   ============================================ */
+
+.quick-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chip {
+  background: white;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.chip:active {
+  background: #e5e7eb;
+}
+
+/* ============================================
+   CHAT INPUT - Matching your input style
+   ============================================ */
+
+.chat-input {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.chat-input input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.send-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.send-btn:hover {
+  background: #1d4ed8;
+}
+
+.send-btn:active {
+  transform: scale(0.98);
+}
+
+.transfer-note {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================
+   CALL CARD / FORM - Matching your form style
+   ============================================ */
+
+.call-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: -0.75rem;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.15s ease;
+  background: white;
+  color: #374151;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form button.primary {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 0.5rem;
+  font-family: inherit;
+}
+
+.form button.primary:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.form button.primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.form button.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   FEEDBACK FORM
+   ============================================ */
+
+.feedback-form {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1rem;
+  padding-top: 2rem !important;
+}
+
+.feedback-form h4 {
+  font-size: 1.125rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   STATUS MESSAGES
+   ============================================ */
+
+.status {
+  padding: 1rem 2rem;
+  margin: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: center;
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-left h1 {
+    font-size: 1.875rem;
+  }
+
+  .hero-left p {
+    font-size: 0.9375rem;
+  }
+
+  .contact-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .contact-grid {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .card-header {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .chat-card {
+    height: 500px;
+  }
+
+  .bubble {
+    max-width: 85%;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+
+  .send-btn {
+    width: 100%;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .quick-topics {
+    padding: 0.75rem 1rem;
+  }
+}

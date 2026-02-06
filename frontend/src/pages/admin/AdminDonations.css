@@ -1,0 +1,412 @@
+/* ============================================
+   PROFESSIONAL ADMIN DONATIONS CSS
+   ============================================ */
+
+/* Reuse base styles from AdminUsers.css */
+/* Only additional/override styles specific to donations */
+
+/* Orange stat icon */
+.stat-icon.orange {
+  background-color: #fed7aa;
+}
+
+.stat-icon.orange svg {
+  color: #f97316;
+}
+
+/* Clickable Stat Cards */
+.stat-card.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card.clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card.clickable:active {
+  transform: translateY(-2px);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-close svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 1.5rem;
+  max-height: calc(80vh - 100px);
+  overflow-y: auto;
+}
+
+/* Modal Data Rows */
+.modal-data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s ease;
+}
+
+.modal-data-row:last-child {
+  border-bottom: none;
+}
+
+.modal-data-row:hover {
+  background-color: #f9fafb;
+}
+
+.modal-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.modal-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Donations Table */
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.donations-table thead tr {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.donations-table th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.donations-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s ease;
+}
+
+.donations-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.donations-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.donations-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+/* Donor Cell */
+.donor-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.donor-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.donor-info h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.donor-info p {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: capitalize;
+}
+
+.donor-info p svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* Contact Cell */
+.contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.contact-item svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.contact-item.college {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.no-data {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* Amount Cell */
+.amount-cell {
+  display: flex;
+  align-items: center;
+}
+
+.amount-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #059669;
+  background-color: #d1fae5;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+/* Role Badge for Donations */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.role-badge.student {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.role-badge.staff {
+  background-color: #f3e8ff;
+  color: #7c3aed;
+}
+
+.role-badge.alumni {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.role-badge.other {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+/* Payment ID */
+.payment-id {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.payment-id svg {
+  width: 1rem;
+  height: 1rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+/* Order ID */
+.order-id {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #6b7280;
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+
+/* Date Cell */
+.date-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date-cell svg {
+  width: 1rem;
+  height: 1rem;
+  color: #9ca3af;
+  margin-right: 0.25rem;
+}
+
+.date-cell .time {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  margin-left: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .donations-table {
+    min-width: 1000px;
+  }
+
+  .donor-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .search-section {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .stat-card,
+  .table-section {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .amount-value {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,566 @@
+/* DonateModal.css - Professional & Clean Design */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Close Button - Fixed position, always visible */
+.modal-close-top-right {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  font-size: 28px;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-radius: 8px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close-top-right:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.1);
+}
+
+/* Selection and Form Screen Containers */
+.selection-screen,
+.form-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Modal Header - Fixed at top */
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 70px 24px 28px 24px;
+  text-align: center;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Back Button - Inside header */
+.back-button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(-2px);
+}
+
+.modal-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 90%;
+}
+
+/* Scrollable Form Content */
+.modal-form {
+  padding: 32px 28px 28px 28px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Custom Scrollbar for Form */
+.modal-form::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-form::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+  margin: 8px 0;
+}
+
+.modal-form::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 10px;
+  border: 2px solid #f5f5f5;
+}
+
+.modal-form::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+/* Selection Cards Container */
+.selection-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 24px 28px 28px 28px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Custom Scrollbar for Selection Cards */
+.selection-cards::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selection-cards::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+  margin: 8px 0;
+}
+
+.selection-cards::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 10px;
+  border: 2px solid #f5f5f5;
+}
+
+.selection-card {
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fafafa;
+  height: fit-content;
+}
+
+.selection-card:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.15);
+}
+
+.card-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.card-description {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 18px 0;
+  line-height: 1.4;
+}
+
+.card-button {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  pointer-events: none;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+}
+
+/* Student Amount Display */
+.student-amount-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.per-year-text {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-left: 8px;
+}
+
+.amount-help-text {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Amount Selection */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.amount-button {
+  padding: 13px 8px;
+  border: 2px solid #e8e8e8;
+  background: #fafafa;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.amount-button:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+  transform: translateY(-2px);
+}
+
+.amount-button.active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Input Fields */
+.input-wrapper {
+  position: relative;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s;
+  font-family: inherit;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.08);
+}
+
+.form-input.with-symbol {
+  padding-left: 38px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 13px 14px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s;
+  font-family: inherit;
+  background: #fafafa;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.08);
+}
+
+.loading-colleges {
+  padding: 13px 14px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.35);
+  margin-top: 8px;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.45);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Security Note */
+.security-note {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-content {
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .modal-header {
+    padding: 60px 20px 20px 20px;
+  }
+
+  .modal-close-top-right {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+
+  .back-button {
+    top: 10px;
+    left: 10px;
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+
+  .modal-icon {
+    font-size: 40px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .modal-subtitle {
+    font-size: 13px;
+  }
+
+  .modal-form {
+    padding: 24px 20px 20px 20px;
+  }
+
+  .selection-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .selection-card {
+    padding: 24px 18px;
+  }
+
+  .student-amount-box {
+    font-size: 28px;
+    padding: 18px;
+  }
+
+  .per-year-text {
+    font-size: 14px;
+  }
+
+  .amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .amount-button {
+    padding: 12px 6px;
+    font-size: 14px;
+  }
+
+  .form-input,
+  .form-select {
+    font-size: 14px;
+    padding: 12px 12px;
+  }
+
+  .form-input.with-symbol {
+    padding-left: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal-header {
+    padding: 58px 16px 18px 16px;
+  }
+
+  .modal-form {
+    padding: 20px 16px 16px 16px;
+  }
+
+  .selection-cards {
+    padding: 18px 16px 16px 16px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .student-amount-box {
+    font-size: 24px;
+    padding: 16px;
+  }
+
+  .per-year-text {
+    font-size: 13px;
+  }
+}

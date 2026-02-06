@@ -1,0 +1,86 @@
+:root {
+  --brand: #2874f0;
+  --brand-dark: #0f5ad6;
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+
+.contact-page {
+  background: var(--bg);
+  min-height: calc(100vh - 120px);
+  padding: 24px;
+}
+
+.contact-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 0 auto 18px;
+  max-width: 1100px;
+}
+.contact-hero h1 { margin:0; font-size:28px; color: var(--text); }
+.contact-hero p { margin:6px 0 0; color: var(--muted); }
+.meta { display:flex; align-items:center; gap:10px; color: var(--muted); font-size:14px; }
+.dot { width:10px; height:10px; border-radius:12px; display:inline-block; }
+.dot.online { background: #22c55e; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+.card-header {
+  display:flex; justify-content: space-between; align-items: center;
+  padding:14px 16px; border-bottom:1px solid var(--border);
+}
+.card-header .title { font-weight:700; color:var(--text); display:flex; align-items:center; gap:10px; }
+.icon { font-size:18px; }
+.badge { background: var(--brand); color:#fff; font-size:12px; padding:6px 10px; border-radius:999px; font-weight:600; }
+.badge.outline { background:#eef4ff; color: var(--brand); border:1px solid var(--brand); }
+
+/* Staff Chat */
+.chat-card { display:flex; flex-direction:column; }
+.user-selector { padding:12px 16px; border-bottom:1px solid var(--border); }
+.user-selector select { width:100%; padding:8px 10px; border:1px solid var(--border); border-radius:10px; font-size:14px; outline:none; }
+.chat-window { height:360px; overflow-y:auto; padding:16px; background:#fafbff; }
+.bubble { max-width:74%; margin-bottom:10px; padding:10px 12px; border-radius:14px; line-height:1.4; font-size:14.5px; }
+.bubble.bot { background:#eef4ff; color:#1e293b; border:1px solid #dbe6ff; border-top-left-radius:4px; }
+.bubble.me { margin-left:auto; background:var(--brand); color:#fff; border-top-right-radius:4px; }
+.chat-input { display:flex; gap:10px; padding:12px 14px 16px; }
+.chat-input input { flex:1; border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px; }
+.chat-input button { background:var(--brand); border:none; color:#fff; border-radius:10px; font-weight:600; cursor:pointer; font-size:14.5px; }
+.chat-input button:hover { background:var(--brand-dark); }
+.empty-chat { color:var(--muted); text-align:center; margin-top:50px; font-size:14px; }
+
+/* Call Requests */
+.call-card { display:flex; flex-direction:column; }
+.call-list { padding:12px 16px; max-height:360px; overflow-y:auto; }
+.call-item { border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin-bottom:10px; background:#fff; }
+.call-name { font-weight:600; color:var(--text); }
+.call-phone { font-size:13px; color:var(--muted); }
+.call-reason { font-size:12px; color:var(--muted); margin-top:2px; }
+.empty { color:var(--muted); text-align:center; margin-top:30px; font-size:14px; }
+
+/* Responsive */
+@media (max-width:960px) { .contact-grid { grid-template-columns:1fr; } .chat-window, .call-list { height:320px; } }
+@media (max-width:640px) { }
