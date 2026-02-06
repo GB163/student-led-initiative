@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Password Reset...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #5856d6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #ffe5e5;
+            border-left: 4px solid #ff4444;
+            color: #cc0000;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #5856d6 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .info {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .device-info {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #1976d2;
+        }
+
+        .debug-info {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 11px;
+            color: #666;
+            text-align: left;
+            font-family: monospace;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji" id="emoji">🔐</div>
+        <h1 id="title">Redirecting...</h1>
+        <p id="message">Please wait while we redirect you to the password reset page...</p>
+        <div class="loading" id="loading"></div>
+        
+        <div id="error" class="error" style="display: none;">
+            <p style="margin: 0; font-weight: bold;">❌ Redirection Failed</p>
+            <p style="margin: 10px 0 0 0; font-size: 13px;" id="errorMessage"></p>
+        </div>
+
+        <div id="manualRedirect" style="display: none;">
+            <a id="manualButton" href="#" class="button">Click Here to Continue</a>
+            <div class="info" style="margin-top: 15px;">
+                <p style="margin: 0; font-size: 12px;">
+                    If the button doesn't work, copy and paste this link into your browser
+                </p>
+            </div>
+        </div>
+
+        <div id="deviceInfo" class="device-info" style="display: none;">
+            <p style="margin: 0;" id="deviceText"></p>
+        </div>
+
+        <div id="debugInfo" class="debug-info" style="display: none;">
+            <strong>Debug Info:</strong><br>
+            <span id="debugText"></span>
+        </div>
+    </div>
+
+    <script>
+        // Get token from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        // ⭐ IMPORTANT: Update these URLs to match your deployments
+        const WEB_FRONTEND_URL = 'https://studentledinitiative-frontend.vercel.app';
+        const MOBILE_FRONTEND_URL = 'https://mobile-app-zeta-red.vercel.app';
+        
+        // Debug logging
+        let debugLog = [];
+        function addDebugLog(message) {
+            debugLog.push(`[${new Date().toLocaleTimeString()}] ${message}`);
+            console.log(message);
+            updateDebugDisplay();
+        }
+
+        function updateDebugDisplay() {
+            const debugDiv = document.getElementById('debugInfo');
+            const debugText = document.getElementById('debugText');
+            debugDiv.style.display = 'block';
+            debugText.innerHTML = debugLog.join('<br>');
+        }
+
+        addDebugLog('🔄 Redirect page loaded');
+        addDebugLog('🎫 Token: ' + (token ? 'Present (' + token.substring(0, 10) + '...)' : 'Missing'));
+        addDebugLog('🌐 Web URL: ' + WEB_FRONTEND_URL);
+        addDebugLog('📱 Mobile URL: ' + MOBILE_FRONTEND_URL);
+
+        // Function to detect if device is mobile
+        function isMobileDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Check for mobile user agents
+            const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            
+            // Check for screen size (as backup)
+            const isSmallScreen = window.innerWidth <= 768;
+            
+            // Check for touch capability
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            addDebugLog('📱 Device Detection:');
+            addDebugLog('  - User Agent Mobile: ' + isMobileUA);
+            addDebugLog('  - Small Screen: ' + isSmallScreen);
+            addDebugLog('  - Touch Capable: ' + hasTouch);
+            addDebugLog('  - Screen Width: ' + window.innerWidth);
+            
+            return isMobileUA || (isSmallScreen && hasTouch);
+        }
+
+        function showError(message) {
+            document.getElementById('emoji').textContent = '❌';
+            document.getElementById('title').textContent = 'Redirection Error';
+            document.getElementById('message').textContent = '';
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('errorMessage').textContent = message;
+            addDebugLog('❌ Error: ' + message);
+        }
+
+        function showManualRedirect(url) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('message').textContent = 'Automatic redirect failed. Please click the button below:';
+            document.getElementById('manualRedirect').style.display = 'block';
+            document.getElementById('manualButton').href = url;
+            addDebugLog('🔘 Showing manual redirect button');
+        }
+
+        function redirect() {
+            // Check if token exists
+            if (!token) {
+                addDebugLog('❌ No token found in URL');
+                showError('Invalid reset link. No token found. Please request a new password reset.');
+                return;
+            }
+
+            addDebugLog('✅ Token found, preparing redirect...');
+
+            // Detect device type
+            const isMobile = isMobileDevice();
+            
+            // ⭐ IMPORTANT: Different URL formats for mobile vs desktop
+            // Mobile: /resetPassword?token=abc123 (query parameter)
+            // Desktop: /reset-password/abc123 (path parameter)
+            let resetUrl;
+            if (isMobile) {
+                // Mobile app uses Expo Router with query params
+                resetUrl = `${MOBILE_FRONTEND_URL}/resetPassword?token=${token}`;
+                addDebugLog('📱 Mobile detected - Using query param format');
+            } else {
+                // Desktop web uses path params
+                resetUrl = `${WEB_FRONTEND_URL}/reset-password/${token}`;
+                addDebugLog('💻 Desktop detected - Using path param format');
+            }
+            
+            addDebugLog('🎯 Device Type: ' + (isMobile ? 'Mobile' : 'Desktop'));
+            addDebugLog('🔗 Final URL: ' + resetUrl);
+
+            // Show device info
+            const deviceInfo = document.getElementById('deviceInfo');
+            const deviceText = document.getElementById('deviceText');
+            deviceText.textContent = `Detected: ${isMobile ? '📱 Mobile Device' : '💻 Desktop'} - Redirecting to ${isMobile ? 'mobile app' : 'web version'}`;
+            deviceInfo.style.display = 'block';
+
+            // Update message
+            document.getElementById('message').textContent = `Redirecting you to ${isMobile ? 'mobile app' : 'web version'}...`;
+
+            // Try to redirect after 1.5 seconds
+            setTimeout(() => {
+                try {
+                    addDebugLog('🚀 Attempting redirect now...');
+                    window.location.href = resetUrl;
+                    
+                    // Show manual button after 3 seconds if redirect didn't work
+                    setTimeout(() => {
+                        addDebugLog('⚠️ Auto-redirect may have failed, showing manual option');
+                        showManualRedirect(resetUrl);
+                    }, 3000);
+                } catch (error) {
+                    addDebugLog('❌ Redirect failed: ' + error.message);
+                    showError('Failed to redirect automatically. Please use the manual button below.');
+                    showManualRedirect(resetUrl);
+                }
+            }, 1500);
+        }
+
+        // Start redirect when page loads
+        window.onload = function() {
+            addDebugLog('✅ Page loaded, starting redirect process...');
+            redirect();
+        };
+    </script>
+</body>
+</html>
